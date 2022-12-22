@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="col-3">
+
+    <div class="questionImg">
+        <img src="{{ question.author.avatar.url }}">
+    </div>
+
+    <div class="like">
+        <div id="question{{ question.id }}">{{ question.rating }}</div>
+        <button type="button" id="like" class="js-vote btn btn-primary" data-model="question" data-action="like"
+                data-id="{{ question.id }}">
+            Like
+        </button>
+        <button type="button" id="dislike" class="js-vote btn btn-danger" data-model="question" data-action="dislike"
+                data-id="{{ question.id }}">
+            Dislike
+        </button>
+    </div>
+
+</div>

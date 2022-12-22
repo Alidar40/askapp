@@ -1,0 +1,40 @@
+{% extends "include/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    {% include "include/bigquestion.html" %}
+
+    {% for answer in content %}
+
+        {% include "include/answer.html" %}
+
+    {% endfor %}
+
+    {% include "include/pagination.html" %}
+
+    {% if request.user.is_authenticated %}
+
+        <div class="row putAnswer">
+            <form class="form mt-5" method="POST" novalidate>
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button class="btn btn-outline-success lowButton" type="submit">Answer</button>
+                {% endbuttons %}
+            </form>
+        </div>
+
+    {% else %}
+        {% include "include/autorize.html" %}
+    {% endif %}
+
+{% endblock content %}
+
+{% block jscode %}
+    <script src="{% static 'js/vote.js' %}"></script>
+    <script src="{% static 'js/correct.js' %}"></script>
+{% endblock jscode %}
+
+                

@@ -1,0 +1,19 @@
+{% extends "include/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div class="bigText">
+        <span class="bigText">New Question</span>
+    </div>
+
+    <form class="form mt-5" method="POST" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button class="btn btn-outline-success lowButton" type="submit">Ask!</button>
+        {% endbuttons %}
+    </form>
+
+{% endblock content %}

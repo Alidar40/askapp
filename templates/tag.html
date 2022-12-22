@@ -1,0 +1,27 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="bigText">
+        <span class="bigText">Tag: {{ tag }}</span>
+    </div>
+
+    {% for question in content %}
+        {% for tag in question.tags.all %}
+            {% if tag == tag %}
+
+                {% include "include/question.html" %}
+
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+    {% include "include/pagination.html" %}
+
+{% endblock content %}
+
+{% block jscode %}
+    <script src="{% static 'js/vote.js' %}"></script>
+    <script src="{% static 'js/correct.js' %}"></script>
+{% endblock jscode %}

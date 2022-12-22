@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>AskApp</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <link href="{% static 'css/my.css' %}" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<header>
+
+    <div class="container-fluid ">
+
+        <div class="row">
+
+            <div class="col-3 logo">
+                <a href="{% url 'index' %}">AskApp</a>
+            </div>
+
+            <div class="col-6 searchField">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search.." aria-label="Search">
+                </form>
+                <button class="btn btn-outline-success" type="submit"><a href="{% url 'ask' %}">Ask!</a></button>
+            </div>
+
+            {% if request.user.is_authenticated %}
+
+                <div class="col-1 headerAvatar">
+                    <img src="{{ request.user.profile.avatar.url }}">
+                </div>
+
+                <div class="col-2 profile">
+                    <div class="name">{{ request.user.username }}</div>
+                    <div class="profileHrefs">
+                        <a href="{% url 'settings' %}">Settings</a>
+                        <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
+                    </div>
+                </div>
+            {% else %}
+
+                <div class="col-2 profile">
+                    <div class="profileHrefs">
+                        <a href="{% url "login" %}?next={{ request.path }}">Log in</a>
+                        <a href="{% url 'signup' %}">Sign up</a>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-9">
+                {% block content %}
+                {% endblock content %}
+            </div>
+
+            <div class="col-3">
+
+                {% block side %}
+                    <div class="rightBlock">
+                        <div class="bigText">
+                            <span>Popular Tags</span>
+                        </div>
+
+                        <div class="popularTags">
+                            {% for tag in tags %}
+                                <a href="{% url "tag" tag.name %}"><span class="tag">{{ tag.name }}</span></a>
+                            {% endfor%}
+                            <!-- <a href="{% url "tag" tags.0 %}"><span class="tag redTag">{{ tags.0 }}</span></a>
+                            <a href="{% url "tag" tags.1 %}"><span class="tag">{{ tags.1 }}</span></a>
+                            <a href="{% url "tag" tags.2 %}"><span class="tag greenTag">{{ tags.2 }}</span></a>
+                            <a href="{% url "tag" tags.3 %}"><span class="tag greenTag">{{ tags.3 }}</span></a>
+                            <a href="{% url "tag" tags.4 %}"><span class="tag">{{ tags.4 }}</span></a>
+                            <a href="{% url "tag" tags.5 %}"><span class="tag orangeTag">{{ tags.5 }}</span></a>
+                            <a href="{% url "tag" tags.6 %}"><span class="tag redTag">{{ tags.6 }}</span></a> -->
+                        </div>
+                    </div>
+
+                    <div class="rightBlock">
+                        <div class="bigText">
+                            <span>Recently online</span>
+                        </div>
+
+                        <div>
+                            {% for user in users %}
+                            <a href="#">
+                                <div class="member">{{ user.username }}</div>
+                            </a>
+                            {% endfor%}
+                        </div>
+                    </div>
+
+                {% endblock side %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/csrf.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block jscode %}
+{% endblock %}
+
+<footer class="footer">
+    <span>2022</span>
+</footer>
+
+</body>
+
+</html>

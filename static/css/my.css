@@ -1,0 +1,238 @@
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.question {
+    border: 1px grey solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.auto {
+    text-align: center;
+    font-size: 30px;
+    border: 1px red solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.questionImg img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 130px;
+}
+
+.questionImg {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    display: flex;
+    font-size: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin: auto;
+}
+
+.profileHrefs {
+    display: flex;
+}
+
+.profileHrefs a {
+    margin-right: 10px;
+}
+
+header img {
+    text-align: center;
+    width: 80px;
+}
+
+.like {
+    font-size: 30px;
+    color: darkblue;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+}
+
+.headerAvatar {
+    text-align: center;
+    margin: auto;
+}
+
+header {
+    height: 100px;
+    border-bottom: 1px solid black;
+}
+
+.searchField {
+    display: flex;
+    margin: auto;
+}
+
+.searchField a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    font-size: 60px;
+    margin: auto;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.popularTags a {
+    text-decoration: none;
+}
+
+.mediumText {
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.mediumText span {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.bigText {
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.bigText span {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.bigText a {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.underQuestionText {
+    margin-top: 10px;
+}
+
+.underQuestionText a {
+    margin-right: 10px;
+}
+
+.rightBlock {
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.tag {
+    margin-right: 10px;
+    font-size: 23px;
+}
+
+.greenTag {
+    color: green;
+    font-size: 24px;
+}
+
+.redTag {
+    color: red;
+    font-size: 27px;
+}
+
+.orangeTag {
+    color: orange;
+    font-size: 29px;
+}
+
+.member {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.bigQuestion img {
+    width: 180px;
+}
+
+.bigQuestion {
+    border-bottom: 2px solid black;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.bigQuestionHead {
+    font-weight: 500;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.checkCorrect {
+    margin-top: 20px;
+}
+
+.putAnswer {
+    margin-top: 30px;
+    padding-top: 40px;
+    border-top: 2px solid black;
+}
+
+.fieldWidth input {
+    width: 600px;
+}
+
+.fieldWidth textarea {
+    width: 600px;
+}
+
+.uploadAvatar img {
+    width: 200px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.newAcc {
+    font-size: 18px;
+}
+
+.logError {
+    margin-bottom: 35px;
+    color: red;
+    font-size: 20px;
+}
+
+.lowButton {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.footer {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: lightgrey;
+}
+
+.footer span {
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 50px;
+}

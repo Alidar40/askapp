@@ -1,0 +1,10 @@
+<div class="underQuestionText">
+
+    <a href="{% url "question" question.id %}"><span>answer({{ question.answers.count }})</span></a>
+    <span>Tags:</span>
+
+    {% for tag in question.tags.all %}
+        <a href="{% url "tag" tag %}"><span>{{ tag }}</span></a>
+    {% endfor %}
+
+</div>
