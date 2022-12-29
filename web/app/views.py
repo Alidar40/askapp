@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from django.contrib import auth
+from django.core.mail import send_mail
 
 from .models import Question, Answer, LikeToQuestion, LikeToAnswer, Profile, Tag, User
 from .forms import *
@@ -115,9 +116,17 @@ def question(request, pk):
         form = AnswerForm(data=request.POST)
         profile = Profile.objects.filter(user=request.user).values("id")
         if form.is_valid():
+            answer_text = form.cleaned_data["text"]
+            send_mail(
+                subject="You've got a new answer",
+                message=f"Someone answered you: {answer_text}",
+                from_email=None,
+                recipient_list=[_question.author.user.email],
+                fail_silently=False,
+            )
             answer = Answer.objects.create(question_id=_question.id,
                                            author_id=profile,
-                                           text=form.cleaned_data["text"])
+                                           text=answer_text)
             return redirect(reverse("question", kwargs={"pk": _question.id}) + "?page="
                             + str(content.paginator.num_pages)+"#"+str(answer.id))
 
