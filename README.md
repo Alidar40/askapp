@@ -23,3 +23,8 @@
 docker-compose build
 docker-compose up
 ```
+
+### Заполнение базы данных
+```
+docker-compose run web python3 manage.py filldb --all 10
+```

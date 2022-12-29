@@ -3,6 +3,7 @@
 node_modules
 .DS_Store
 volume/
+nginx/cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

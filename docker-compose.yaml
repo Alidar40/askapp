@@ -27,10 +27,11 @@ services:
       db:
         condition: service_healthy
   nginx:
+    image: nginx:stable-alpine
     container_name: nginx
-    build: ./nginx
     restart: always
     volumes:
+      - ./nginx/:/etc/nginx
       - ./web/static:/static
       - ./web/uploads:/uploads
     ports:
