@@ -19,21 +19,7 @@
 
 
 ## Запуск
-
-### Установка зависимостей
 ```
-pip install -r requirements.txt
-npm install
+docker-compose build
+docker-compose up
 ```
-
-### Подготовка базы данных
-```
-docker pull mysql
-
-docker run --name askdb -e MYSQL_ROOT_PASSWORD=rootpw -e MYSQL_DATABASE=askdb -e MYSQL_USER=askuser -e MYSQL_PASSWORD=askpw -p3306:3306 -d mysql
-
-python manage.py migrate
-
-python manage.py filldb --all 10
-```
-
