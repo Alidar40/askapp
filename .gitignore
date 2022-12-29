@@ -2,6 +2,7 @@
 .idea
 node_modules
 .DS_Store
+volume
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
